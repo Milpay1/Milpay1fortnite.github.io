@@ -1,6 +1,32 @@
 <!doctype html>
 <head><link rel="stylesheet" href="style.css">
   <title>The great</title>
+  
+  <script type="text/javascript">
+    function submitScore() {
+      // retrieve html elements by ID already on the page prepared for modfying
+      var scoresList = document.getElementById('scoreList');
+      var scoreInput = document.getElementById('scoreInput');
+
+      // create a new <li> element to append to the list and store it in 'li'
+      var li = document.createElement('li');
+
+
+      // check to see if the value in the input box is a number
+      if (parseInt(scoreInput.value)) {
+        // append the score in scoreInput to the new list element
+        li.appendChild(document.createTextNode(scoreInput.value));
+        // append the <li> element we created earlier to the scoreList
+        scoresList.appendChild(li);
+        // clear the input box by setting the value to nothing
+        scoreInput.value = "";
+      } else {
+        // alert the user with a popup if there is not a number in the input box
+        alert("please enter a number into the score input box")
+      }
+    }
+  </script>
+
 </head>
 <h1>Active cartoon network shows</h1>
 <body>
@@ -15,9 +41,14 @@
       <a href="https://www.epicgames.com/fortnite/en-US/buy-now/battle-royale">Play fortnite now</a>
       <a href="https://www.cartoonnetwork.com/">Or click here to watch the shows</a>
       <a href="https://www.google.com/search?q=snake&rlz=1C1GCEA_enUS800US800&oq=snake&aqs=chrome.0.69i59j0l5.2191j0j4&sourceid=chrome&ie=UTF-8">Play snake with and tell me your high score</a>
-      <form>
-        Score:<br>
-        <input type ="text"name ="score" placeholder="Score"></br>
+      <br /><br />
+      Score:<br>
+      <input class="scoreInput" type ="text"name ="score" placeholder="Score"><input type="submit" value="submit" onclick="submitScore();" /></br>
+      <br />
+      <ol id="scoreList">
+        <lh>Scores (type in a score above and submit to see them below)</lh>
+      </ol>
+      <br /><br />
       <img src="https://cdn2.vectorstock.com/i/1000x1000/02/56/thumbs-up-star-vector-560256.jpg">
       <form>
         First name:<br>
